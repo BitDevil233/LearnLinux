@@ -1,3 +1,22 @@
+## 2.3 exec函数族
+`exec函数族的作用`
+>在进程中调用另外一个可执行文件
+`exec函数族的特点`
+>调用exec函数的进程中用户态的数据会被可执行文件中的数据替换，只留下ID灯数据不会被替换
+![](../pic/2-3-1.png)
+`exec函数族包括的函数有哪些`
+![](../pic/2-3-2.png)
+
+`exec函数族的命名特点`
+
+- l : 参数以列表形式填充，以NULL结尾
+- v : 参数以数组（向量）形式填充
+
+- p ：在path环境变量指定的目录下搜索文件名（filename）
+
+- e : 在envp[]数组中的元素（路径目录）下搜索文件名为filename的文件
+
+`常用exec函数介绍`
 ```c
 #include <unistd.h>
 int execl(const char *pathname, const char *arg, ...)
